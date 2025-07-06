@@ -3,7 +3,6 @@ import axios from '../../api/axios';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../redux/userSlice';
 import { useNavigate } from 'react-router-dom';
-import DashBoard from '../../pages/FileCard';
 
 const Login = () => {
   const [form, setForm] = useState({ email: '', password: '' });

@@ -7,8 +7,6 @@ import Home from "./pages/Home";
 import React,{useEffect, useState} from "react";
 import { jwtDecode } from 'jwt-decode';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import FileUpload from './components/Fileupload';
-import DashBoard from './pages/FileCard';
 
 const AuthToggle = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -38,17 +36,19 @@ const AuthToggle = () => {
 
 function App() {
     const token = localStorage.getItem('token');
-    useEffect(() => {
-      const decode = jwtDecode(token);
-      const now = Date.now()/1000;
-      
-      if (decode.exp < now) {
-        localStorage.removeItem(token);
-        alert('session expired, please login ....');
-        <Login/>
-      }
-    }, []);
-
+    if (token) {
+        useEffect(() => {
+        const decode = jwtDecode(token);
+        const now = Date.now()/1000;
+        
+        if (decode.exp < now) {
+          localStorage.removeItem(token);
+          alert('session expired, please login ....');
+          <Login/>
+        }
+      }, []);
+    } 
+  
     return (
       <Router>
         <Routes>

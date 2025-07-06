@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { setFiles } from '../redux/fileSlice';
 import { useSelector } from 'react-redux';
 
-const Dashboard = () => {
+const Search = () => {
   const [tab, setTab] = useState('myFiles');
   const [query, setQuery] = useState('');
   const [allFiles, setAllFiles] = useState([]); // all data from API
@@ -33,9 +33,11 @@ const Dashboard = () => {
             tab,
             keyWord: query
         }
+
         const res = await axios.post('/search',body, {
-        headers: { Authorization: `Bearer ${token}` },
+          headers: { Authorization: `Bearer ${token}` },
         });
+
         setAllFiles(res.data);
         dispatch(setFiles(res.data));
   }
@@ -46,7 +48,6 @@ const Dashboard = () => {
 
   async function searchRecords (e) {
     await showFiles();
-    // setQuery(e.target.value);
   }
 
   return (
@@ -96,4 +97,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Search;
