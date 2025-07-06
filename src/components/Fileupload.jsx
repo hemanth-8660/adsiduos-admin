@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import axios from '../api/axios';
-import FilePreview from './FilePreview';
+import FilePreview from './Filepreview';
 
 const FileUpload = ({handleUploadSuccess}) => {
   const fileInputRef = useRef(null);
