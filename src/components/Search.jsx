@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from '../api/axios';
-import FileUpload from './FileUpload';
+import FileUpload from './Fileupload';
 import FileCard from '../pages/FileCard';
 import { useDispatch } from 'react-redux';
 import { setFiles } from '../redux/fileSlice';
