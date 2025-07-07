@@ -28,7 +28,7 @@ const FileCard = ({file, tab, keyWord}) => {
     return (
             <tr>
                 <td>{file.originalFileName}</td>
-                <td>{file.uploadedBy}</td>
+                <td>{file.userName}</td>
                 <td>{new Date(file.updatedAt).toLocaleString()}</td>
                 <td>{file.views || 0}</td>
                 <td><button onClick={handleView}>view</button></td>
